@@ -92,7 +92,7 @@ function convertPokemontoBaseStatsInformation(pokemon){
         let porcentagem = (valor / 100) * 100; // Supondo uma barra de 100 unidades
         let color_background = color;
         if (porcentagem > 100){
-            porcentagem = (valor/1000 * 100)
+            porcentagem = (valor/600 * 100)
         }else if(idBarra === "basestat"){
             idBarra = "total"
         }else if (color === "red" || color === "green"){
@@ -143,16 +143,16 @@ function convertPokemontoEvolutionInformation(pokemon){
    return`
     <div class= "table_div">
             <table class="table_information">
-            <tr class= "table_evolution">
-            <td class="tag_evolution_name">Evolution:</td>
-            ${pokemon.evolutions.map(evolution => {
-                return `<td class="evolution_name"> ${evolution.name} </td>`
-            })
-            }
-            </tr>
-            <tr class= "table_evolution">
-            <td><a href="${`http://127.0.0.1:5500/pagePoke.html?id=${pokemon.number + 1}`}">Veja aqui</a></td>
-            </tr>
+                <tr class= "table_evolution">
+                    <td class="tag_evolution_name">Evolution:</td>
+                    ${pokemon.evolutions.map(evolution => {
+                    return `<td class="evolution_name"> ${evolution.name} </td>`
+                })
+                }
+                </tr>
+                <tr class= "table_evolution">
+                <td class="tag_evolution_link"><a href="${`http://127.0.0.1:5500/pagePoke.html?id=${pokemon.number + 1}`}">Veja aqui</a></td>
+                </tr>
             </table>
     </div>
    `
@@ -160,16 +160,14 @@ function convertPokemontoEvolutionInformation(pokemon){
 }
 function convertPokemontoMovesInformation(pokemon){
     return`
-    <div>
-        <ol>
-            ${pokemon.evolutions.map(evolution => {
-                return `<li> ${evolution.name} </li>`
-            })
-            }
-             <li><a href="${`http://127.0.0.1:5500/pagePoke.html?id=${pokemon.number + 1}`}" target="_blank">Veja aqui</a></li>
-            
-        
-        </ol>
+    <div class= "table_div">
+            <table class="table_information">
+                <tr class= "table_moves">
+                    <td class="tag_moves_name">Evolution:</td>
+                    <td class="tag_moves"> ${pokemon.movesSkill.map((moveSkill) => `<li class="type ${moveSkill}">${moveSkill}</li>`).join('')}</td>
+                </tr>
+    
+            </table>
     </div>
    `
 
@@ -185,16 +183,14 @@ pokemon_button_basestats.addEventListener("click", () => {
      pokemon_about.innerHTML = show_about_information
 })
 pokemon_button_evolution.addEventListener("click", () => {
-    let show_about_information = convertPokemontoMovesInformation(pokemon)
+    let show_about_information = convertPokemontoEvolutionInformation(pokemon)
     pokemon_about.innerHTML = show_about_information
 })
 
 pokemon_button_moves.addEventListener("click", () => {
-    let show_about_information = convertPokemontoEventInformation(pokemon)
+    let show_about_information = convertPokemontoMovesInformation(pokemon)
     pokemon_about.innerHTML = show_about_information
 })
-
-
 
 function loadPokemonInformation() {
     pokeApi.getPokemonDetailById(pokemonId).then((pokemonDetail) => {

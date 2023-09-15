@@ -22,5 +22,10 @@ class Pokemon_Detail{
         return this.hp + this.attack + this.defense + this.special_attack + this.special_defense + this.speed
        
     }
+    evolution;
+    moveSkill;
+    movesSkill = [];
+    
+
 
 }

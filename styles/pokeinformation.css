@@ -11,6 +11,42 @@
     background-size:200px;
     
 }
+
+
+
+@media screen and (min-width: 300px){
+    .pokemon_detail{
+        background-image: url('../imgs/pokeball.png');
+        background-repeat: no-repeat; /* Impede a repetição da imagem */ 
+        background-position: right; /* Posiciona a imagem à direita e no centro vertical */
+        background-size:200px;
+        
+    }
+
+@media screen and (min-width: 400px){
+    .pokemon_detail{
+        background-image: url('../imgs/pokeball.png');
+        background-repeat: no-repeat; /* Impede a repetição da imagem */ 
+        background-position: right; /* Posiciona a imagem à direita e no centro vertical */
+        background-size:300px;
+        
+    }
+}
+
+
+@media screen and (min-width: 576px){
+    .pokemons{
+        
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .pokemons{
+        
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
 .arrow_and_heart_container{
     padding:.6rem 1.2rem;
     display:flex;
@@ -196,14 +232,24 @@ p{
     text-transform: capitalize;
 }
 
-.evolution_list{
-    background-color: red;
-    display:flex;
+
+
+.table_information{
+    margin: 1em;
 }
 
-.evolution_name{
-    background-color: red;
-}
 .table_evolution{
-    background-color: red;
+    font-size: 20px;
+    text-transform: capitalize;
+
+}
+
+.tag_evolution_name , .tag_evolution_link{
+    padding:10px;
+  
+}
+.tag_evolution_link a{
+    text-decoration: none;
+    color:blueviolet;
+}
 }

@@ -76,14 +76,21 @@ async function  convertPokeApiDetailToPokemonInformation(pokeDetail)  {
     //Pokemon Evolution
 
     pokemon.evolutions = evolution.chain.evolves_to.map(species => species.species)
-    
 
-    
+    //Pokemon Moves
+
+    const movesSkill = pokeDetail.moves.map(moveSkill => moveSkill.move.name)
+    const [moveSkill] = movesSkill
+
+    pokemon.moveSkill = moveSkill
+    pokemon.movesSkill = movesSkill
 
 
 
     return pokemon
 }
+
+
 
 
 
