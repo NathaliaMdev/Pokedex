@@ -151,7 +151,7 @@ function convertPokemontoEvolutionInformation(pokemon){
                 }
                 </tr>
                 <tr class= "table_evolution">
-                <td class="tag_evolution_link"><a href="${`http://127.0.0.1:5500/pagePoke.html?id=${pokemon.number + 1}`}">Veja aqui</a></td>
+                <td class="tag_evolution_link"><a href="${`http://127.0.0.1:5500/Pokedex/pagePoke.html?id=${pokemon.number + 1}`}">Veja aqui</a></td>
                 </tr>
             </table>
     </div>
